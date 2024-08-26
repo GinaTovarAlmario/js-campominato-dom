@@ -52,3 +52,16 @@ function computeTotalCells(levelChoice){
 
     return rows * cols;
 }
+// FUNZIONE PER GENERARE BOMBE
+
+ function generateBombs(totalCells,totalBombs){
+    // vado a crearmi il mio array che andrà a contenere i numeri estratti
+    const bombs = [];
+    while(bombs.length < totalBombs){
+        // genera un numero casuale 
+        const randomNumber = Math.floor(Math.random() * totalCells) + 1;
+        // il numero generato mettilo dentro l'array preparato prima
+        bombs.push(randomNumber);
+    }
+    return bombs;
+ }

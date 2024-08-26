@@ -51,6 +51,9 @@ playButton.addEventListener('click', function(){
     // mi calcolo il valore max del punteggio
     const maxScore = totalCells - totalBombs;
     console.log('maxscore: ',maxScore);
+    // genero le bombe
+    const bombs = generateBombs(totalCells, totalBombs);
+    console.log('Le bombe sono le seguenti : ', bombs);
 
     // ora devo generare la mia griglia
     for(let i = 0; i < totalCells; i++){
