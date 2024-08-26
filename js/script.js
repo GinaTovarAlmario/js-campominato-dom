@@ -30,6 +30,8 @@ const playButton = document.getElementById('play');
 // vado a recuperarmi gli elementi della select del form
 const form = document.querySelector('form');
 const select = document.querySelector('select');
+// devo prendermi l'elemento che mi serve per mostrare il punteggio in pagina
+const scoreCounter = document.getElementById('score');
 
 // FASE DI RACCOLTA DATI
 
@@ -59,6 +61,10 @@ playButton.addEventListener('click', function(){
         cell.addEventListener('click', function(){
             // Al click sulla cella, stampiamo il numero della cella cliccata in console e coloriamo di azzurro
             cell.classList.add('clicked');
+            // al click della cella devo aumentare il punteggio del gioco
+            score ++;
+            console.log('Il punteggio attuale : ',score);
+            scoreCounter.innerText = score;
             // stampa in console il numero cella
             console.log('Numero cella cliccata: ',i + 1);
         });
