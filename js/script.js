@@ -46,6 +46,11 @@ playButton.addEventListener('click', function(){
     const totalCells = computeTotalCells(select.value);
     // mi preparo la variabile che terrà conto del risultato partita
     let score = 0;
+    // mi preparo la variabile che mi indica il numero di bombe presenti nel gioco
+    const totalBombs = 16;
+    // mi calcolo il valore max del punteggio
+    const maxScore = totalCells - totalBombs;
+    console.log('maxscore: ',maxScore);
 
     // ora devo generare la mia griglia
     for(let i = 0; i < totalCells; i++){
