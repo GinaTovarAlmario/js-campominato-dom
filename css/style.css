@@ -86,3 +86,6 @@ body{
     margin-top: 20px;
     margin-bottom: 50px;
 }
+#grid .cell.bomb{
+    background-color: red;
+}
