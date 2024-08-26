@@ -1,0 +1,82 @@
+/* GENERICS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    height: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+footer{
+    height: 40px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+body{
+    background-color: #80ffd4;
+}
+.title-left img{
+    width: 50px;
+    height: 50px;
+}
+.title-left{
+    display: flex;
+    flex-basis: 60%;
+    gap: 10px;
+    align-items: center;
+    padding-left: 20px;
+}
+.title-right{
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-right: 20px;
+}
+.btn{
+    padding: 2px 25px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.cell{
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cell.total-cells-100{
+    height: calc(100% / 10);
+    flex-basis: calc(100% / 10);    
+}
+.cell.total-cells-81{
+    height: calc(100% / 9);
+    flex-basis: calc(100% / 9);
+}
+.cell.total-cells-49{
+    height: calc(100% / 7);
+    flex-basis: calc(100% / 7);
+}
+#grid{
+    width: 350px;
+    height: 350px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* mi serve una classe che cambi il backgroun d coloro in blu */
+.cell.clicked{
+    background-color: blue;
+}
+/* UTILITIES */
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
