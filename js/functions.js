@@ -60,8 +60,8 @@ function computeTotalCells(levelChoice){
     while(bombs.length < totalBombs){
         // genera un numero casuale 
         const randomNumber = Math.floor(Math.random() * totalCells) + 1;
-        // il numero generato mettilo dentro l'array preparato prima
-        bombs.push(randomNumber);
+         // mi assicuro che non ci siano numeri uguali
+        if(!bombs.includes(randomNumber))bombs.push(randomNumber);
     }
     return bombs;
  }
