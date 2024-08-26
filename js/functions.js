@@ -34,16 +34,16 @@ function computeTotalCells(levelChoice){
     // considero le mie diverse casistiche
     switch(levelChoice){
         case 'hardlevel':
-            rows = 10;
-            cols = 10;
+            rows = 7;
+            cols = 7;
             break;
         case 'mediumlevel':
             rows = 9;
             cols = 9;
             break;
         case 'easylevel':
-            rows = 7;
-            cols = 7;
+            rows = 10;
+            cols = 10;
             break;
         default:
             console.error('Livello non riconosciuto', levelChoice);
