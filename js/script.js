@@ -27,37 +27,44 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 // vado a recuperarmi la griglia del DOM ei bottone
 const grid = document.getElementById('grid');
 const playButton = document.getElementById('play');
+
 // vado a recuperarmi gli elementi della select del form
 const form = document.querySelector('form');
 const select = document.querySelector('select');
+
 // devo prendermi l'elemento che mi serve per mostrare il punteggio in pagina
 const scoreCounter = document.getElementById('score');
-
-// FASE DI RACCOLTA DATI
 
 // FASE DI ELABORAZIONE DATI
 
 // al click sul bottone play mi genera le celle e il suo contenuto
 playButton.addEventListener('click', function(){
     console.log(select.value);
+
     // devo svuotare la mia griglia per evitare che ogni volta che clicco play vada ad aggiungere griglie
     grid.innerHTML = '';
+
     // prima di generare le celle devo sapere il livello di difficoltà scelto dall'utente
     const totalCells = computeTotalCells(select.value);
     // mi preparo la variabile che terrà conto del risultato partita
     let score = 0;
+
     // mi preparo la variabile che mi indica il numero di bombe presenti nel gioco
     const totalBombs = 16;
+
     // mi calcolo il valore max del punteggio
     const maxScore = totalCells - totalBombs;
     console.log('maxscore: ',maxScore);
+
     // genero le bombe
     const bombs = generateBombs(totalCells, totalBombs);
     console.log('Le bombe sono le seguenti : ', bombs);
 
     // ora devo generare la mia griglia
     for(let i = 0; i < totalCells; i++){
+
         // mi serve andare a creare una funzione che mi crei le celle
+
         // invoco la funzione creata
         const cell = createCell(i + 1 , totalCells );
         // devo inserire la cella in pagina
@@ -66,20 +73,33 @@ playButton.addEventListener('click', function(){
         grid.appendChild(cell);
 
         // aggiugno un eventlistener alla cella
+
         cell.addEventListener('click', function(){
             // controllo prima di tutto che la mia cella non contenga già la classe così da non poterla ricliccare
+            
             if(cell.classList.contains('clicked')) return;
-            // devo controllare se c'è una bomba
+
+            // devo controllare se c'è una bomba nella cella
+
             if(bombs.includes(i+1)){
-                console.log( `Ops! Hai preso una bomba! Hai perso. Punti totali: ${score}`);
+                // stampo messaggio
+                console.log(`Ops! Hai preso una bomba! Hai perso. Punti totali: ${score}`);
+                // svuoto la cella
+                cell.innerText = '';
+                // inserisco la classe per il cambio colore cella
                 cell.classList.add('bomb');
             } else {
             // Al click sulla cella, stampiamo il numero della cella cliccata in console e coloriamo di azzurro
-            cell.classList.add('clicked');
+                cell.classList.add('clicked');
+           
             // al click della cella devo aumentare il punteggio del gioco
-            scoreCounter.innerText = ++score;
+                scoreCounter.innerText = ++score;
+            // devo controlla se ho vinto
+                if(score === maxScore){
+                    console.log(`Complimenti! Hai vinto! Punti totali: ${score}`);
+                }
             // stampa in console il numero cella
-            console.log('Numero cella cliccata: ',i + 1);
+                console.log('Numero cella cliccata: ',i + 1);
             }
         });
     }
