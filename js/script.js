@@ -71,17 +71,16 @@ playButton.addEventListener('click', function(){
             if(cell.classList.contains('clicked')) return;
             // devo controllare se c'è una bomba
             if(bombs.includes(i+1)){
-                console.log('Ops! Hai preso una bomba!');
+                console.log( `Ops! Hai preso una bomba! Hai perso. Punti totali: ${score}`);
                 cell.classList.add('bomb');
-            }
+            } else {
             // Al click sulla cella, stampiamo il numero della cella cliccata in console e coloriamo di azzurro
             cell.classList.add('clicked');
             // al click della cella devo aumentare il punteggio del gioco
-            score ++;
-            console.log('Il punteggio attuale : ',score);
-            scoreCounter.innerText = score;
+            scoreCounter.innerText = ++score;
             // stampa in console il numero cella
             console.log('Numero cella cliccata: ',i + 1);
+            }
         });
     }
 });
