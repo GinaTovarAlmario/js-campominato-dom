@@ -59,6 +59,8 @@ playButton.addEventListener('click', function(){
 
         // aggiugno un eventlistener alla cella
         cell.addEventListener('click', function(){
+            // controllo prima di tutto che la mia cella non contenga già la classe così da non poterla ricliccare
+            if(cell.classList.contains('clicked')) return;
             // Al click sulla cella, stampiamo il numero della cella cliccata in console e coloriamo di azzurro
             cell.classList.add('clicked');
             // al click della cella devo aumentare il punteggio del gioco
