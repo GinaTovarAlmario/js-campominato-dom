@@ -65,3 +65,10 @@ function computeTotalCells(levelChoice){
     }
     return bombs;
  }
+
+//  FUNZIONE PER TERMINARE IL GIOCO
+// la funzione deve sapere se la partita è finita perchè abbiamo perso o vinto. Mi servirà il punteggio
+function endGame(score, isWinner = fasle){
+    const resultMessage = isWinner ? 'vinto' : 'perso';
+    alert(`Hai ${resultMessage}. Punti totali: ${score}.`);
+}

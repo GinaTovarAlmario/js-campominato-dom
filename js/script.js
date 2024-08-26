@@ -82,12 +82,13 @@ playButton.addEventListener('click', function(){
             // devo controllare se c'è una bomba nella cella
 
             if(bombs.includes(i+1)){
-                // stampo messaggio
-                console.log(`Ops! Hai preso una bomba! Hai perso. Punti totali: ${score}`);
                 // svuoto la cella
                 cell.innerText = '';
+
                 // inserisco la classe per il cambio colore cella
                 cell.classList.add('bomb');
+                // invoco la funzione di fine gioco
+                endGame(score);
             } else {
             // Al click sulla cella, stampiamo il numero della cella cliccata in console e coloriamo di azzurro
                 cell.classList.add('clicked');
@@ -96,7 +97,8 @@ playButton.addEventListener('click', function(){
                 scoreCounter.innerText = ++score;
             // devo controlla se ho vinto
                 if(score === maxScore){
-                    console.log(`Complimenti! Hai vinto! Punti totali: ${score}`);
+                    // invoco la funzione di fine gioco
+                    endGame(score, true);
                 }
             // stampa in console il numero cella
                 console.log('Numero cella cliccata: ',i + 1);
