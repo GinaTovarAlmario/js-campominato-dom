@@ -68,7 +68,8 @@ function computeTotalCells(levelChoice){
 
 //  FUNZIONE PER TERMINARE IL GIOCO
 // la funzione deve sapere se la partita è finita perchè abbiamo perso o vinto. Mi servirà il punteggio
-function endGame(score, isWinner = fasle){
+function endGame(score, isWinner = false){
     const resultMessage = isWinner ? 'vinto' : 'perso';
     alert(`Hai ${resultMessage}. Punti totali: ${score}.`);
+    isGameOver = true;
 }

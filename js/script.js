@@ -28,6 +28,10 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 const grid = document.getElementById('grid');
 const playButton = document.getElementById('play');
 
+// mi preparo la variabile per fermare il gioco
+let isGameOver = false;
+
+
 // vado a recuperarmi gli elementi della select del form
 const form = document.querySelector('form');
 const select = document.querySelector('select');
@@ -36,13 +40,13 @@ const select = document.querySelector('select');
 const scoreCounter = document.getElementById('score');
 
 // FASE DI ELABORAZIONE DATI
-
 // al click sul bottone play mi genera le celle e il suo contenuto
 playButton.addEventListener('click', function(){
     console.log(select.value);
 
     // devo svuotare la mia griglia per evitare che ogni volta che clicco play vada ad aggiungere griglie
     grid.innerHTML = '';
+    isGameOver = false;
 
     // prima di generare le celle devo sapere il livello di difficoltà scelto dall'utente
     const totalCells = computeTotalCells(select.value);
@@ -77,7 +81,7 @@ playButton.addEventListener('click', function(){
         cell.addEventListener('click', function(){
             // controllo prima di tutto che la mia cella non contenga già la classe così da non poterla ricliccare
             
-            if(cell.classList.contains('clicked')) return;
+            if(isGameOver ||cell.classList.contains('clicked')) return;
 
             // devo controllare se c'è una bomba nella cella
 
